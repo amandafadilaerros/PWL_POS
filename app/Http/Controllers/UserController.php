@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\UserModel;
 use Illuminate\Support\Facades\Hash;
@@ -54,15 +55,37 @@ class UserController extends Controller
         //         'level_id' => 2
         //     ],
         // );
-        $user = UserModel::firstOrNew(
-            [
-                'username' => 'manager33',
-                'nama' => 'Manager Tiga Tiga',
-                'password' => Hash::make('12345'),
-                'level_id' => 2
-            ],
-        );
+
+        $user = UserModel::create([
+            'username' => 'manager55',
+            'nama' => 'Manager55',
+            'password' => Hash::make('12345'),
+            'level_id' => 2,
+        ]);
+
+        $user->username = 'manager12';
+
+        // $user->isDirty();
+        // $user->isDirty('username');
+        // $user->isDirty('nama');
+        // $user->isDirty(['nama', 'username']);
+
+        // $user->isClean();
+        // $user->isClean('username');
+        // $user->isClean('nama');
+        // $user->isClean(['nama', 'username']);
+
         $user->save();
-        return view('user', ['data' => $user]);
+
+        // $user->isDirty();
+        // $user->isClean();
+        // dd($user->isDirty());
+        // return view('user', ['data' => $user]);
+
+        $user->wasChanged();
+        $user->wasChanged('username');
+        $user->wasChanged(['username', 'level_id']);
+        $user->wasChanged('nama');
+        dd($user->wasChanged(['nama', 'username']));
     }
 }
