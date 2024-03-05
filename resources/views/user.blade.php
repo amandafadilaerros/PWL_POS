@@ -1,42 +1,26 @@
-<?php
-
-namespace Database\Seeders;
-
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-
-class UserSeeder extends Seeder
-{
-    /**
-     * Run the database seeds.
-     */
-    public function run(): void
-    {
-        $data = [
-            [
-                'user_id' => 1,
-                'level_id' => 1,
-                'username' => 'admin',
-                'nama' => 'Administrator',
-                'password' => Hash::make('12345'), //class untuk mengenkripsi/hash password
-            ],
-            [
-                'user_id' => 2,
-                'level_id' => 2,
-                'username' => 'manager',
-                'nama' => 'Manager',
-                'password' => Hash::make('12345'), 
-            ],
-            [
-                'user_id' => 3,
-                'level_id' => 3,
-                'username' => 'staff',
-                'nama' => 'Staff/Kasir',
-                'password' => Hash::make('12345'), 
-            ],
-        ];
-        DB::table('m_users')->insert($data);
-    }
-}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Data User</title>
+    </head>
+    <body>
+        <h1>Data User </h1>
+        <table border="1" cellpadding="2" cellspacing="0">
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Nama</th>
+                <th>ID Level Pengguna</th>
+            </tr>
+            @foreach ($data as $d)
+            <tr>
+                <td>{{ $d->user_id}}</td>
+                <td>{{ $d->username}}</td>
+                <td>{{ $d->nama}}</td>
+                <td>{{ $d->level_id}}</td>
+            </tr>
+                @endforeach
+        
+        </table>
+    </body>
+</html>
