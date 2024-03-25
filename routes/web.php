@@ -33,10 +33,9 @@ Route::get('/user/ubah{id}', [UserController::class, 'ubah'])->name('/user/ubah'
 Route::put('/user/ubah_simpan{id}', [UserController::class, 'ubah_simpan'])->name('/user/ubah_simpan');
 Route::get('/user/hapus{id}', [UserController::class, 'hapus'])->name('/user/hapus');
 
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
