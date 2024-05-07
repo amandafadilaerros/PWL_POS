@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\LevelController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\Api\KategoriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +32,16 @@ Route::delete('levels/{level}',[LevelController::class,'destroy']);
 
 Route::get('users',[UserController::class,'index']);
 Route::post('users',[UserController::class,'store']);
-Route::get('users/{level}',[UserController::class,'show']);
-Route::put('users/{level}',[UserController::class,'update']);
-Route::delete('users/{level}',[UserController::class,'destroy']);
+Route::get('users/{user}',[UserController::class,'show']);
+Route::put('users/{user}',[UserController::class,'update']);
+Route::delete('users/{user}',[UserController::class,'destroy']);
+
+
+Route::get('kategoris',[KategoriController::class,'index']);
+Route::post('kategoris',[KategoriController::class,'store']);
+Route::get('kategoris/{kategori}',[KategoriController::class,'show']);
+Route::put('kategoris/{kategori}',[KategoriController::class,'update']);
+Route::delete('kategoris/{kategori}',[KategoriController::class,'destroy']);
 
 
 Route::post('/logout',App\Http\Controllers\Api\LogoutController::class)->name('logout');
