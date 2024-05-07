@@ -16,19 +16,19 @@ class KategoriController extends Controller
 
     public function store(Request $request)
     {
-        $level = KategoriModel::create($request->all());
-        return response()->json($level, 201);
+        $kategori = KategoriModel::create($request->all());
+        return response()->json($kategori, 201);
     }
 
-    public function show(KategoriModel $level)
+    public function show(KategoriModel $kategori)
     {
-        return KategoriModel::find($level);
+        return KategoriModel::find($kategori);
     }
 
-    public function update(Request $request, KategoriModel $level)
+    public function update(Request $request, KategoriModel $kategori)
     {
-        $level->update($request->all());
-        return KategoriModel::find($level);
+        $kategori->update($request->all());
+        return KategoriModel::find($kategori);
     }
 
     public function destroy(KategoriModel $user)

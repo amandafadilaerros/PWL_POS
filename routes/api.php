@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\BarangController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\LevelController;
@@ -42,6 +43,13 @@ Route::post('kategoris',[KategoriController::class,'store']);
 Route::get('kategoris/{kategori}',[KategoriController::class,'show']);
 Route::put('kategoris/{kategori}',[KategoriController::class,'update']);
 Route::delete('kategoris/{kategori}',[KategoriController::class,'destroy']);
+
+Route::get('barangs',[BarangController::class,'index']);
+Route::post('barangs',[BarangController::class,'store']);
+Route::get('barangs/{barangs}',[BarangController::class,'show']);
+Route::put('barangs/{barangs}',[BarangController::class,'update']);
+Route::delete('barangs/{barangs}',[BarangController::class,'destroy']);
+
 
 
 Route::post('/logout',App\Http\Controllers\Api\LogoutController::class)->name('logout');
