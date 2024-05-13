@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\LevelController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\KategoriController;
+use App\Http\Controllers\Api\PenjualanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +50,12 @@ Route::post('barangs',[BarangController::class,'store']);
 Route::get('barangs/{barangs}',[BarangController::class,'show']);
 Route::put('barangs/{barangs}',[BarangController::class,'update']);
 Route::delete('barangs/{barangs}',[BarangController::class,'destroy']);
+
+Route::get('penjualans',[PenjualanController::class,'index']);
+Route::post('penjualans',[PenjualanController::class,'store']);
+Route::get('penjualans/{penjualans}',[PenjualanController::class,'show']);
+Route::put('penjualans/{penjualans}',[PenjualanController::class,'update']);
+Route::delete('penjualans/{penjualans}',[PenjualanController::class,'destroy']);
 
 
 
